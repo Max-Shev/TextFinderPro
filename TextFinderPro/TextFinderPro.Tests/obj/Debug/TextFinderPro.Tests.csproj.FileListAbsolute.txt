@@ -1,0 +1,10 @@
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\bin\Debug\TextFinderPro.Tests.dll
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\bin\Debug\TextFinderPro.Tests.pdb
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\bin\Debug\nunit.framework.dll
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\bin\Debug\nunit.framework.pdb
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\bin\Debug\nunit.framework.xml
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\obj\Debug\TextFinderPro.Tests.csprojResolveAssemblyReference.cache
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\obj\Debug\TextFinderPro.Tests.csproj.CoreCompileInputs.cache
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\obj\Debug\TextFinderPro.Tests.csproj.CopyComplete
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\obj\Debug\TextFinderPro.Tests.dll
+E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.Tests\obj\Debug\TextFinderPro.Tests.pdb
