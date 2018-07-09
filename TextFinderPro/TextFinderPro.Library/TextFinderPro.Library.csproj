@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Searching\SearchProviders\ExactSearchProvider.cs" />
     <Compile Include="Searching\SearchProviders\SearchProvider.cs" />
+    <Compile Include="Searching\SearchProviders\SearchProviderFactory.cs" />
     <Compile Include="Searching\SearchProviders\SearchProviderType.cs" />
     <Compile Include="Searching\SearchProviders\SearchResult\FoundText.cs" />
     <Compile Include="Searching\SearchProviders\SearchResult\SearchResult.cs" />
