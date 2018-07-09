@@ -18,7 +18,7 @@ namespace TextFinderPro.Library.Searching.SearchProviders
         protected SearchProvider(SearchProviderType providerType  , string sourceText)
         {
             _providerType = providerType;
-            _sourceText = sourceText;
+            _sourceText = sourceText.ToLower();
         }
 
         /// <summary>
