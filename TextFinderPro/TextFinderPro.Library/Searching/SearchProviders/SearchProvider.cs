@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextFinderPro.Library.Searching.SearchProviders.SearchResullt;
 
 namespace TextFinderPro.Library.Searching.SearchProviders
 {
@@ -11,7 +12,7 @@ namespace TextFinderPro.Library.Searching.SearchProviders
     /// </summary>
     public abstract class SearchProvider
     {
-        private string _sourceText;
+        protected string _sourceText;
         private SearchProviderType _providerType;
         
         protected SearchProvider(SearchProviderType providerType  , string sourceText)
@@ -20,11 +21,39 @@ namespace TextFinderPro.Library.Searching.SearchProviders
             _sourceText = sourceText;
         }
 
-        public abstract IEnumerable<SearchResult> SearchOne(string pattern);
-        public abstract IEnumerable<SearchResult> SearchAny(IEnumerable<string> patterns);
-        public abstract IEnumerable<SearchResult> SearchAll(IEnumerable<string> patterns);
+        /// <summary>
+        /// Search one pattern in text. Finding all incomings
+        /// </summary>
+        /// <param name="patterns">Pattern for search</param>
+        /// <returns></returns>
+        public abstract IEnumerable<FoundText> SearchOne(string pattern);
 
-        public IEnumerable<SearchResult> SearchAny(params string[] patterns) => SearchAny(patterns.AsEnumerable());
-        public IEnumerable<SearchResult> SearchAll(params string[] patterns) => SearchAll(patterns.AsEnumerable());
+        /// <summary>
+        /// Search many patterns in text. Search stops when found incommings of one pattern
+        /// </summary>
+        /// <param name="patterns">Patterns for search</param>
+        /// <returns></returns>
+        public abstract IEnumerable<FoundText> SearchAny(IEnumerable<string> patterns);
+
+        /// <summary>
+        /// Search all incomings of all patterns in text
+        /// </summary>
+        /// <param name="patterns">Patterns for search</param>
+        /// <returns></returns>
+        public abstract IEnumerable<FoundText> SearchAll(IEnumerable<string> patterns);
+
+        /// <summary>
+        /// Search many patterns in text. Search stops when found incommings of one pattern
+        /// </summary>
+        /// <param name="patterns">Patterns for search</param>
+        /// <returns></returns>
+        public IEnumerable<FoundText> SearchAny(params string[] patterns) => SearchAny(patterns.AsEnumerable());
+
+        /// <summary>
+        /// Search all incomings of all patterns in text
+        /// </summary>
+        /// <param name="patterns">Patterns for search</param>
+        /// <returns></returns>
+        public IEnumerable<FoundText> SearchAll(params string[] patterns) => SearchAll(patterns.AsEnumerable());
     }
 }
