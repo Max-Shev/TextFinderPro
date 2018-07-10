@@ -31,6 +31,7 @@ namespace TextFinderPro.Library.Searching.SearchProviders
 
         public override IEnumerable<FoundText> SearchOne(string pattern)
         {
+            pattern = pattern.ToLower();
             int startSearchIndex = _sourceText.IndexOf(pattern);
             while (startSearchIndex != -1)
             {
