@@ -13,13 +13,17 @@ namespace TextFinderPro.Tests.Searching
     {
         private SearchProvider _exactSearchProvider;
         private string _sourceText;
-        [SetUp]
+
+
+        [OneTimeSetUp]
         public void Init()
         {
             _sourceText = "Карл у Клары украл кораллы, а Клара у Карла украла кларнет.";
             _exactSearchProvider = SearchProviderFactory.GetSearchProvider(SearchProviderType.ExactSearchProvider , _sourceText);
         }
+
         #region SearchOne test methods
+        [Test]
         public void KarlHasPosition0()
         {
             // arrange
@@ -29,6 +33,7 @@ namespace TextFinderPro.Tests.Searching
             Assert.AreEqual(searchResult.Position, 0);
         }
 
+        [Test]
         public void TextHasTwoIncommings()
         {
             // arrange
@@ -38,6 +43,7 @@ namespace TextFinderPro.Tests.Searching
             Assert.AreEqual(searchResult, 2);
         }
 
+        [Test]
         public void SearchOfKarlReturnedTextKarl()
         {
             // arrange
@@ -49,6 +55,7 @@ namespace TextFinderPro.Tests.Searching
         #endregion
 
         #region SearchAny test methods
+        [Test]
         public void TextHasAnyKlarAndNet()
         {
             // arrange
