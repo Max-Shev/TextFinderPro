@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +13,9 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
         {
         }
 
-        public override IEnumerable<ExtractedFileText> GetTextFromFile(string filePath)
+        protected override string TryGetTextFromFile(string filePath)
         {
-            throw new NotImplementedException();
-        }
-
-        public override IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePath)
-        {
-            throw new NotImplementedException();
+            return File.ReadAllText(filePath);
         }
     }
 }

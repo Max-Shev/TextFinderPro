@@ -16,18 +16,22 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
         }
 
         
-        protected abstract IEnumerable<ExtractedFileText> TryGetTextFromFile(string filePath);
-        public virtual IEnumerable<ExtractedFileText> GetTextFromFile(string filePath)
+        protected abstract string TryGetTextFromFile(string filePath);
+
+        public virtual ExtractedFileText GetTextFromFile(string filePath)
         {
             try
             {
-                return TryGetTextFromFile(filePath);
+                return new ExtractedFileText(TryGetTextFromFile(filePath) , filePath , true);
             }
             catch
             {
                 return FailFileText.FromFile(filePath);
             }
         }
-        public abstract IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePath);
+        public virtual IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePathCollection)
+        {
+            return filePathCollection.AsParallel().Select(GetTextFromFile);
+        }
     }
 }
