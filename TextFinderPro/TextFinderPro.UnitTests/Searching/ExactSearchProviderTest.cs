@@ -26,7 +26,7 @@ namespace TextFinderPro.Tests.Searching
         [Test]
         public void KarlHasPosition0()
         {
-            // arrange
+            // act
             var searchResult = _exactSearchProvider.SearchOne("Карл").First();
 
             //assert
@@ -36,7 +36,7 @@ namespace TextFinderPro.Tests.Searching
         [Test]
         public void TextHasTwoIncommings()
         {
-            // arrange
+            // act
             var searchResult = _exactSearchProvider.SearchOne("Карл").Count();
 
             //assert
@@ -46,11 +46,11 @@ namespace TextFinderPro.Tests.Searching
         [Test]
         public void SearchOfKarlReturnedTextKarl()
         {
-            // arrange
+            // act
             var searchResult = _exactSearchProvider.SearchOne("Карл").First();
 
             //assert
-            Assert.AreEqual(searchResult.Text, "Карл");
+            Assert.AreEqual(searchResult.Text, "Карл".ToLower());
         }
         #endregion
 
@@ -58,16 +58,27 @@ namespace TextFinderPro.Tests.Searching
         [Test]
         public void TextHasAnyKlarAndNet()
         {
-            // arrange
+            // act
             var searchResult = _exactSearchProvider.SearchAny("Клар" , "Нет").Count();
 
             //assert
             Assert.AreNotEqual(searchResult, 0);
         }
 
+
         #endregion
 
         #region  SearchAll test methods
+
+        [Test]
+        public void TextHas4KlarAndNet()
+        {
+            // act
+            var searchResult = _exactSearchProvider.SearchAll("Клар", "Нет").Count();
+
+            //assert
+            Assert.AreEqual(searchResult, 4);
+        }
 
         #endregion
     }
