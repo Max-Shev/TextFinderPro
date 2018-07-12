@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextFinderPro.Library.TextExtraction.FileProviders
 {
-    enum FileProviderType
+    public enum FileProviderType
     {
         TextFile,
         WordFile,

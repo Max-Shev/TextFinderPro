@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextFinderPro.Library.TextExtraction.FileProviders
 {
-    abstract class FileProvider
+    public abstract class FileProvider
     {
         public FileProviderType FileProviderType { get; }
 
@@ -15,7 +15,19 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
             FileProviderType = fileProviderType;
         }
 
-        public abstract IEnumerable<ExtractedFileText> GetTextFromFile(string filePath);
+        
+        protected abstract IEnumerable<ExtractedFileText> TryGetTextFromFile(string filePath);
+        public virtual IEnumerable<ExtractedFileText> GetTextFromFile(string filePath)
+        {
+            try
+            {
+                return TryGetTextFromFile(filePath);
+            }
+            catch
+            {
+                return FailFileText.FromFile(filePath);
+            }
+        }
         public abstract IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePath);
     }
 }
