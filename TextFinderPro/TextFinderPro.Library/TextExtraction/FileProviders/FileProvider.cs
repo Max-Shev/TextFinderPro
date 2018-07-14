@@ -15,6 +15,8 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
             FileProviderType = fileProviderType;
         }
 
+        public FileProvider() { }
+
         
         protected abstract string TryGetTextFromFile(string filePath);
 

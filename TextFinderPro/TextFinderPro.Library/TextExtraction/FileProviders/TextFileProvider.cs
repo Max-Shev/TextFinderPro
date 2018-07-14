@@ -9,7 +9,7 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
 {
     public class TextFileProvider : FileProvider
     {
-        protected TextFileProvider(FileProviderType fileProviderType) : base(FileProviderType.TextFile)
+        public TextFileProvider() : base(FileProviderType.TextFile)
         {
         }
 

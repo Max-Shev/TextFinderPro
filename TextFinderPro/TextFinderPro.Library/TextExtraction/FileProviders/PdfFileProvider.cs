@@ -10,7 +10,7 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
 {
     public class PdfFileProvider : FileProvider
     {
-        protected PdfFileProvider(FileProviderType fileProviderType) : base(FileProviderType.PdfFile)
+        public PdfFileProvider() : base(FileProviderType.PdfFile)
         {
         }
 
