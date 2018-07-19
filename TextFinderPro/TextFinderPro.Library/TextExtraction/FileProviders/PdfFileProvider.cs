@@ -18,7 +18,7 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
         {
             PdfReader pdfReader = new PdfReader(filePath);
             StringBuilder pdfTextBuilder = new StringBuilder();
-            for (int pageIndex = 1; pageIndex < pdfReader.NumberOfPages; pageIndex++)
+            for (int pageIndex = 1; pageIndex <= pdfReader.NumberOfPages; pageIndex++)
             {
                 ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
                 string text = PdfTextExtractor.GetTextFromPage(pdfReader, pageIndex, strategy);
