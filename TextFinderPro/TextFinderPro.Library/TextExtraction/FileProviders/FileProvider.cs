@@ -26,9 +26,9 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
             {
                 return new ExtractedFileText(TryGetTextFromFile(filePath) , filePath , true);
             }
-            catch
+            catch (Exception ex)
             {
-                return FailFileText.FromFile(filePath);
+                return FailFileText.FromFile(filePath , ex.Message);
             }
         }
         public virtual IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePathCollection)

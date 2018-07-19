@@ -11,7 +11,7 @@ namespace TextFinderPro.Library.TextExtraction
     /// </summary>
     public sealed class FailFileText : ExtractedFileText
     {
-        private FailFileText(string fileText, string fileName, bool isValidExtraction) : base(String.Empty, fileName, false)
+        private FailFileText(string fileText, string fileName, bool isValidExtraction , string errorMessage) : base(String.Empty, fileName, false ,errorMessage)
         {
         }
 
@@ -20,9 +20,9 @@ namespace TextFinderPro.Library.TextExtraction
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public static FailFileText FromFile(string fileName)
+        public static FailFileText FromFile(string fileName , string errorMessage)
         {
-            return new FailFileText(string.Empty, fileName, false);
+            return new FailFileText(string.Empty, fileName, false , errorMessage);
         }
     }
 }
