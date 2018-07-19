@@ -7,7 +7,7 @@ using Microsoft.Office.Interop.Word;
 
 namespace TextFinderPro.Library.TextExtraction.FileProviders
 {
-    class WordFileProvider : FileProvider
+    public class WordFileProvider : FileProvider
     {
         public WordFileProvider() : base(FileProviderType.WordFile)
         {

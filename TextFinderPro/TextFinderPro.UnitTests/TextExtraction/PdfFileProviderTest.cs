@@ -11,26 +11,20 @@ using TextFinderPro.Library.TextExtraction.FileProviders;
 namespace TextFinderPro.UnitTests.TextExtraction
 {
     [TestFixture]
-    public class PdfFileProviderTest
+    public class PdfFileProviderTest: FileProviderBaseTest
     {
-        private PdfFileProvider _pdfFileProvider;
-        private ExtractedFileText _extractedFileText;
-        private string _extractedText => _extractedFileText.FileText;
-        private const string TestFilesFolder = @"E:\Проекты\TextFinderPro\TextFinderPro\TextFinderPro.UnitTests\bin\Debug\TestFiles";
-        private string _pdfFileForTest;
-
         [OneTimeSetUp]
         public void Init()
         {
-            _pdfFileProvider = new PdfFileProvider();
-            _pdfFileForTest = Path.Combine(TestFilesFolder ,  "test.pdf");
-            _extractedFileText = _pdfFileProvider.GetTextFromFile(_pdfFileForTest);
+            _fileProvider = new PdfFileProvider();
+            _fileForTest = Path.Combine(TestFilesFolder ,  "test.pdf");
+            _extractedFileText = _fileProvider.GetTextFromFile(_fileForTest);
         }
 
         [Test]
-        public void ExtractionIsValid()
+        public void PdfExtractionIsValid()
         {
-            var result = _pdfFileProvider.GetTextFromFile(_pdfFileForTest);
+            var result = _fileProvider.GetTextFromFile(_fileForTest);
             Assert.IsTrue(result.IsValidExtraction);
         }
 
