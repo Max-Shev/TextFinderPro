@@ -56,6 +56,7 @@
     <Compile Include="TextExtraction\ExtractedFileText.cs" />
     <Compile Include="TextExtraction\FailFileText.cs" />
     <Compile Include="TextExtraction\FileProviders\FileProvider.cs" />
+    <Compile Include="TextExtraction\FileProviders\FileProviderFactory.cs" />
     <Compile Include="TextExtraction\FileProviders\FileProviderType.cs" />
     <Compile Include="TextExtraction\FileProviders\PdfFileProvider.cs" />
     <Compile Include="TextExtraction\FileProviders\TextFileProvider.cs" />
