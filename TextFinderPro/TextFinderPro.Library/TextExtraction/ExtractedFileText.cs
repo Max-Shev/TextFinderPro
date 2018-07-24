@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextFinderPro.Library.TextExtraction
+﻿namespace TextFinderPro.Library.TextExtraction
 {
     /// <summary>
     /// Result of extraction text from file
@@ -26,11 +20,17 @@ namespace TextFinderPro.Library.TextExtraction
         /// </summary>
         public bool IsValidExtraction { get; set; }
 
-        public ExtractedFileText(string fileText, string fileName, bool isValidExtraction)
+        /// <summary>
+        /// Message of throwing exceptiob during extraction. Empty string if extraction is successfull
+        /// </summary>
+        public string ErrorMessage { get; set; }
+
+        public ExtractedFileText(string fileText, string fileName, bool isValidExtraction = true, string errorMessage = "")
         {
             FileText = fileText;
             FileName = fileName;
             IsValidExtraction = isValidExtraction;
+            ErrorMessage = errorMessage;
         }
 
     }
