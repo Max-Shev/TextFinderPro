@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Searching\ExactSearchProviderTest.cs" />
+    <Compile Include="Searching\RegexSearchProviderTest.cs" />
     <Compile Include="TextExtraction\FileProviderBaseTest.cs" />
     <Compile Include="TextExtraction\FileProviderFactoryTest.cs" />
     <Compile Include="TextExtraction\PdfFileProviderTest.cs" />
