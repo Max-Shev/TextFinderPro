@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TextFinderPro.Library.Searching.SearchProviders.SearchResullt;
 
 namespace TextFinderPro.Library.Searching.SearchProviders
@@ -11,23 +7,6 @@ namespace TextFinderPro.Library.Searching.SearchProviders
     {
         public ExactSearchProvider(string sourceText) : base(SearchProviderType.ExactSearchProvider, sourceText)
         { }
-
-
-        public override IEnumerable<FoundText> SearchAll(IEnumerable<string> patterns)
-        {
-            return patterns.SelectMany(SearchOne);
-        }
-
-        public override IEnumerable<FoundText> SearchAny(IEnumerable<string> patterns)
-        {
-            IEnumerable<FoundText> foundTexts = null;
-            foreach (var pattern in patterns)
-            {
-                foundTexts = SearchOne(pattern);
-                if (foundTexts.Count() != 0) return foundTexts;
-            }
-            return foundTexts;
-        }
 
         public override IEnumerable<FoundText> SearchOne(string pattern)
         {
