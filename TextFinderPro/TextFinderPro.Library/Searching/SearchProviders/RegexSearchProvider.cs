@@ -11,7 +11,7 @@ namespace TextFinderPro.Library.Searching.SearchProviders
 
         public override IEnumerable<FoundText> SearchOne(string pattern)
         {
-            Regex regex = new Regex(pattern);
+            Regex regex = new Regex(pattern , RegexOptions.IgnoreCase);
             foreach (Match match in regex.Matches(_sourceText))
                 yield return new FoundText(match.Value, match.Index);
         }
