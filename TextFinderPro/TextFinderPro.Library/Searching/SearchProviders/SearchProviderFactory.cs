@@ -14,6 +14,8 @@ namespace TextFinderPro.Library.Searching.SearchProviders
             {
                 case SearchProviderType.ExactSearchProvider:
                     return new ExactSearchProvider(sourceText);
+                case SearchProviderType.RegexSearchProvider:
+                    return new RegexSearchProvider(sourceText);
                 default:
                     throw new ArgumentException($"SearchProvider with value {searchProviderType} doesn't exist");
             }

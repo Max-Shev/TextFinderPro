@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Searching\SearchProviders\ExactSearchProvider.cs" />
+    <Compile Include="Searching\SearchProviders\RegexSearchProvider.cs" />
     <Compile Include="Searching\SearchProviders\SearchProvider.cs" />
     <Compile Include="Searching\SearchProviders\SearchProviderFactory.cs" />
     <Compile Include="Searching\SearchProviders\SearchProviderType.cs" />
