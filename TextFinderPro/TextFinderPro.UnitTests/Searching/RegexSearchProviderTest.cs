@@ -28,5 +28,26 @@ namespace TextFinderPro.UnitTests.Searching
             var searchResult = _regexSearchProvider.SearchOne("Карл");
             Assert.IsNotEmpty(searchResult);
         }
+
+        [Test]
+        public void TextContains11Words()
+        {
+            var searchResult = _regexSearchProvider.SearchOne(@"\w+").Count();
+            Assert.AreEqual(searchResult, 11);
+        }
+
+        [Test]
+        public void TextContainsUkralaInWordsBigerThanKral()
+        {
+            var searchResult = _regexSearchProvider.SearchOne(@"\w*крал\w*").Select(foundItem => foundItem.Text).Contains("украла");
+            Assert.True(searchResult);
+        }
+
+        [Test]
+        public void TextContainsBigerThanKral()
+        {
+            var searchResult = _regexSearchProvider.SearchOne(@"\w*крал\w*").Count();
+            Assert.AreEqual(searchResult, 2);
+        }
     }
 }
