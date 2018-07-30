@@ -62,6 +62,7 @@
     <Compile Include="TextExtraction\FileProviders\PdfFileProvider.cs" />
     <Compile Include="TextExtraction\FileProviders\TextFileProvider.cs" />
     <Compile Include="TextExtraction\FileProviders\WordFileProvider.cs" />
+    <Compile Include="TextExtraction\TextExtractor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
