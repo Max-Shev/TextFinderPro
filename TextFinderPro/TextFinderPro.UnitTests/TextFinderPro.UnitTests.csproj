@@ -50,6 +50,7 @@
     <Compile Include="TextExtraction\FileProviderBaseTest.cs" />
     <Compile Include="TextExtraction\FileProviderFactoryTest.cs" />
     <Compile Include="TextExtraction\PdfFileProviderTest.cs" />
+    <Compile Include="TextExtraction\TextExtractorTest.cs" />
     <Compile Include="TextExtraction\TextFileProviderTest.cs" />
     <Compile Include="TextExtraction\WordFileProviderTest.cs" />
   </ItemGroup>

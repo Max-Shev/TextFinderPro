@@ -14,28 +14,28 @@ namespace TextFinderPro.UnitTests.TextExtraction
         [Test]
         public void RtfExtentionSelectTextProvider()
         {
-            var fileProvider = FileProviderFactory.GetTextProvider(".rtf");
+            var fileProvider = FileProviderFactory.GetTextProvider("rootfolder//filename.rtf");
             Assert.IsInstanceOf(typeof(TextFileProvider), fileProvider);
         }
 
         [Test]
         public void RtfExtentionNotSelectWordProvider()
         {
-            var fileProvider = FileProviderFactory.GetTextProvider(".rtf");
+            var fileProvider = FileProviderFactory.GetTextProvider("rootfolder//filename.rtf");
             Assert.IsNotInstanceOf(typeof(WordFileProvider), fileProvider);
         }
 
         [Test]
         public void WordExtentionSelectWordProvider()
         {
-            var fileProvider = FileProviderFactory.GetTextProvider(".docx");
+            var fileProvider = FileProviderFactory.GetTextProvider("rootfolder//filename.docx");
             Assert.IsInstanceOf(typeof(WordFileProvider), fileProvider);
         }
 
         [Test]
         public void IsoExtentionThrowsException()
         {
-            Assert.Throws(typeof(InvalidOperationException) , () => FileProviderFactory.GetTextProvider(".iso"));
+            Assert.Throws(typeof(InvalidOperationException) , () => FileProviderFactory.GetTextProvider("rootfolder//.iso"));
         }
     }
 }
