@@ -29,9 +29,9 @@ namespace TextFinderPro.Library.TextExtraction.FileProviders
 
         public static List<string> RegisteredExtentions => _providerTypesRelations.Select(e => e.Key).ToList();
 
-        public static FileProvider GetTextProvider(string fileExtention)
+        public static FileProvider GetTextProvider(string filePath)
         {
-            fileExtention = fileExtention.ToLower();
+            string fileExtention = Path.GetExtension(filePath).ToLower();
             if (!_providerTypesRelations.ContainsKey(fileExtention))
                 throw new InvalidOperationException($"There is no any text providers for this file extention {fileExtention}");
             return _textProviders[_providerTypesRelations[fileExtention]];
