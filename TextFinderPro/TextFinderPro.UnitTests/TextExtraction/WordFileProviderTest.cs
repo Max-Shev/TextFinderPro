@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.IO;
+using TextFinderPro.Library.TextExtraction;
 using TextFinderPro.Library.TextExtraction.FileProviders;
 
 namespace TextFinderPro.UnitTests.TextExtraction
@@ -41,6 +42,20 @@ namespace TextFinderPro.UnitTests.TextExtraction
         {
             var result = _extractedText.Contains("Ерусалимский");
             Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void FailTextReturnFailText()
+        {
+            // Arrange
+            var fileProvider = new WordFileProvider();
+            var fileForTest = Path.Combine(TestFilesFolder, "fail test.doc");
+
+            // Act
+            var extractedFileText = fileProvider.GetTextFromFile(fileForTest);
+
+            // Assert
+            Assert.IsInstanceOf(typeof(FailFileText), extractedFileText);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,14 @@ namespace TextFinderPro.Library.TextExtraction
             return true;
         }
 
-        private IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePathsCollection)
+        public IEnumerable<ExtractedFileText> GetTextFromFiles(IEnumerable<string> filePathsCollection)
         {
             if (!AreSettingsCorrect())
                 throw new InvalidOperationException("Extracting settings are not correct");
-            return filePathsCollection.AsParallel().Select(file => FileProviderFactory.GetTextProvider(file).GetTextFromFile(file));
+            if (!AllFilesNeedToExtract)
+                filePathsCollection = filePathsCollection.Where(file => ExtentionsForExtracting.Contains(Path.GetExtension(file)) && !ExcludedExtentions.Contains(Path.GetExtension(file)));
+            return filePathsCollection.GroupBy(file => FileProviderFactory.GetTextProvider(file))
+                                      .SelectMany((groupedFiles) => groupedFiles.Key.GetTextFromFiles(groupedFiles));
         }
 
     }
